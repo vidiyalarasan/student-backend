@@ -26,6 +26,11 @@ public class StudentController {
     public List<Student> getAll() {
         return service.getAll();
     }
+    @PostMapping
+public Student addStudent(@RequestBody Student student) {
+    return StudentRepository.save(student);
+}
+
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
