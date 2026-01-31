@@ -17,21 +17,19 @@ public class StudentController {
         this.service = service;
     }
 
+    // ✅ CREATE
     @PostMapping
     public Student create(@RequestBody Student student) {
         return service.save(student);
     }
 
+    // ✅ READ
     @GetMapping
     public List<Student> getAll() {
         return service.getAll();
     }
-    @PostMapping
-public Student addStudent(@RequestBody Student student) {
-    return StudentRepository.save(student);
-}
 
-
+    // ✅ DELETE
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         service.delete(id);
