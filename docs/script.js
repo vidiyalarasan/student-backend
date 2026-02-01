@@ -1,40 +1,77 @@
 const API_URL = "https://student-api-production-da62.up.railway.app/api/students";
 
-function loadStudents() {
-    fetch(API_URL)
-        .then(response => response.json())
-        .then(data => {
-            const list = document.getElementById("studentList");
-            list.innerHTML = "";
-
-            data.forEach(student => {
-                const li = document.createElement("li");
-                li.textContent = student.name + " - " + student.course;
-                list.appendChild(li);
-            });
-        })
-        .catch(error => console.error("Error:", error));
-}
 function addStudent() {
-    const student = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        course: document.getElementById("course").value
-    };
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const course = document.getElementById("course").value;
+
+    if (!name || !email || !course) {
+        alert("Please fill all fields");
+        return;
+    }
 
     fetch(API_URL, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(student)
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            course: course
+        })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to add student");
+        }
+        return response.json();
     })
     .then(() => {
-        loadStudents();
+        // clear inputs
         document.getElementById("name").value = "";
         document.getElementById("email").value = "";
         document.getElementById("course").value = "";
+
+        // reload list
+        loadStudents();
     })
+    .catch(error => {
+        console.error(error);
+        alert("Error adding student");
+    });
+}
+function loadStudents() {
+    fetch(API_URL)
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById("studentTableBody");
+            tableBody.innerHTML = "";
+
+            data.forEach(student => {
+                const row = document.createElement("tr");
+
+                row.innerHTML = `
+                    <td>${student.name}</td>
+                    <td>${student.email}</td>
+                    <td>${student.course}</td>
+                    <td>
+                        <button onclick="deleteStudent(${student.id})">
+                            Delete
+                        </button>
+                    </td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        });
+}
+function deleteStudent(id) {
+    fetch(`${API_URL}/${id}`, {
+        method: "DELETE"
+    })
+    .then(() => loadStudents())
     .catch(err => console.error(err));
 }
+loadStudents();
 
