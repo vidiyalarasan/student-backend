@@ -5,34 +5,41 @@
 </head>
 <body>
 
-<h1>Students</h1>
-<h2>Add Student</h2>
+<div class="container">
+    <h1>Student Management</h1>
 
-<input type="text" id="name" placeholder="Name">
-<input type="email" id="email" placeholder="Email">
-<input type="text" id="course" placeholder="Course">
+    <div class="card">
+        <h2>Add Student</h2>
 
-<br><br>
-<button type="button" onclick="addStudent()">Add Student</button>
+        <div class="form-row">
+            <input type="text" id="name" placeholder="Name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="course" placeholder="Course">
+            <button type="button" onclick="addStudent()">Add</button>
+        </div>
+    </div>
 
-<hr>
+    <div class="card">
+        <div class="table-header">
+            <h2>Students</h2>
+            <button onclick="loadStudents()">Load Students</button>
+        </div>
 
-<button onclick="loadStudents()">Load Students</button>
-
-<table border="1" cellpadding="10" cellspacing="0">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Course</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody id="studentTableBody">
-    </tbody>
-</table>
-
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="studentTableBody"></tbody>
+        </table>
+    </div>
+</div>
 
 <script src="script.js"></script>
 </body>
+
 </html>

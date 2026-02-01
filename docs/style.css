@@ -1,29 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f6f8;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e5ecf9, #f8fafc);
+    margin: 0;
     padding: 40px;
 }
 
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
 h1 {
-    margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1f2937;
 }
 
 h2 {
-    margin-top: 30px;
+    margin: 0;
+    color: #111827;
+}
+
+.card {
+    background: white;
+    padding: 20px 24px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
 }
 
 input {
-    padding: 8px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #2563eb;
 }
 
 button {
-    padding: 8px 14px;
+    padding: 10px 16px;
     background-color: #2563eb;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 14px;
     cursor: pointer;
 }
 
@@ -31,25 +67,39 @@ button:hover {
     background-color: #1e40af;
 }
 
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
-    background-color: white;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
 }
 
 th {
-    background-color: #f1f5f9;
+    background-color: #f3f4f6;
+    text-align: left;
+    padding: 12px;
+    color: #374151;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tr:hover {
+    background-color: #f9fafb;
 }
 
 td button {
     background-color: #dc2626;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
 }
 
 td button:hover {
