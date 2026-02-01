@@ -81,7 +81,7 @@ student-project/
   "course": "Java"
 }
 ```
-
+---
 ▶️ Run Locally
 Backend
 
@@ -93,40 +93,41 @@ Frontend
 Open the file below directly in a browser:
 
 docs/index.html
-
+---
 🧠 What I Learned
 
-    Building REST APIs with Spring Boot
+  - Building REST APIs with Spring Boot
 
-    Connecting frontend to backend using Fetch API
+  -  Connecting frontend to backend using Fetch API
 
-    PostgreSQL cloud database integration
+  -  PostgreSQL cloud database integration
 
-    CORS handling
+  -  CORS handling
 
-    Deploying backend and database on Railway
+  -  Deploying backend and database on Railway
 
-    Hosting frontend on GitHub Pages
+  -  Hosting frontend on GitHub Pages
 
-    Structuring a monorepo project
+  - Structuring a monorepo project
 
-    Debugging real production issues
-
+  - Debugging real production issues
+---
 🚀 Future Enhancements
 
-    Update student details
+  -  Update student details
 
-    Search & filter students
+  -  Search & filter students
 
-    Confirmation dialog for delete
+  -  Confirmation dialog for delete
 
-    Pagination
+  -  Pagination
 
-    Better UI/UX styling
+  -  Better UI/UX styling
 
-    API documentation using Swagger
-
+  -  API documentation using Swagger
+---
 👤 Author
 
 Vidiyalarasan
 Java Backend Developer (Learning Phase)
+---
