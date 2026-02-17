@@ -3,6 +3,23 @@ const API_URL = "https://student-api-production-da62.up.railway.app/api/students
 let editingStudentId = null;
 
 // CREATE OR UPDATE
+function parseJwt(token) {
+    const base64Payload = token.split('.')[1];
+    const payload = atob(base64Payload);
+    return JSON.parse(payload);
+}
+
+
+const token = localStorage.getItem("jwt");
+
+if (!token) {
+    window.location.href = "login.html";
+}
+
+const decoded = parseJwt(token);
+const username = decoded.sub;
+const role = decoded.roles ? decoded.roles[0] : decoded.role;
+
 function addStudent() {
 
     const name = document.getElementById("name").value;
